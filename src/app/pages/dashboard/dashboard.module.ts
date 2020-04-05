@@ -3,9 +3,10 @@ import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 
-import { NavBarComponent } from './components/nav-bar/nav-bar.component';
+import { NavBarComponent } from './components';
 import { DashboardComponent } from './dashboard.component';
 import { routes } from './dashboard.routes';
+import { DashboardService } from './services';
 
 import { SharedModule } from '@shared/shared.module';
 
@@ -18,8 +19,10 @@ import { SharedModule } from '@shared/shared.module';
     CommonModule,
     RouterModule.forChild(routes),
     LayoutModule,
-    SharedModule,
-
+    SharedModule
+  ],
+  providers: [
+    DashboardService
   ]
 })
 export class DashboardModule { }

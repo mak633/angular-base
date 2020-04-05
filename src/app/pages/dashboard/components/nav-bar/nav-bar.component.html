@@ -10,22 +10,18 @@
         mat-icon-button
         (click)="isExpanded = !isExpanded;"
         >
-        <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+        <mat-icon aria-label="Side nav toggle icon" color="primary">menu</mat-icon>
       </button>
     </mat-toolbar>
     <mat-nav-list>
-      <mat-list-item>
-        <mat-icon mat-list-icon>dashboard</mat-icon>
-        <h4 mat-line *ngIf="isExpanded || isHandset">Dashboard</h4>
-      </mat-list-item>
-      <mat-list-item>
+      <a class="navigation-item" mat-list-item routerLink="/posts" routerLinkActive="active">
         <mat-icon mat-list-icon>list</mat-icon>
         <h4 mat-line *ngIf="isExpanded || isHandset">Posts</h4>
-      </mat-list-item>
-      <mat-list-item>
+      </a>
+      <a class="navigation-item" mat-list-item routerLink="/users" routerLinkActive="active">
         <mat-icon mat-list-icon>person</mat-icon>
         <h4 mat-line *ngIf="isExpanded || isHandset">Users</h4>
-      </mat-list-item>
+      </a>
     </mat-nav-list>
   </mat-drawer>
   <div>
@@ -38,7 +34,12 @@
         *ngIf="isHandset">
         <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
       </button>
-      <span>intellias</span>
+      <div class="d-flex justify-content-between align-items-center h-100 w-100">
+        <a routerLink="/" class="py-2 h-100">
+          <img src="https://about.gitlab.com/images/press/logo/png/gitlab-icon-1-color-white-rgb.png" class="img-fluid h-100">
+        </a>
+        <span>John Doe</span>
+      </div>
     </mat-toolbar>
     <ng-content></ng-content>
   </div>
