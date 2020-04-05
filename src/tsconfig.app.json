@@ -1,0 +1,18 @@
+{
+  "extends": "../tsconfig.json",
+  "compilerOptions": {
+    "outDir": "../out-tsc/app",
+    "experimentalDecorators": true,
+    "types": ["node"],
+    "typeRoots": ["../node_modules/@types"]
+  },
+  "exclude": [
+    "../**/jest-global-mocks.ts",
+    "../**/jest-mocks.ts",
+    "../**/jest.helpers.ts",
+    "../**/jest.ts",
+    "../**/__tests__/*.*",
+    "../**/__mocks__/*.*",
+    "**/*.spec.ts"
+  ]
+}

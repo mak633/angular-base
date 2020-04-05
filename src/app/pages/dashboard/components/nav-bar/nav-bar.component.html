@@ -1,0 +1,45 @@
+<mat-drawer-container class="sidenav-container" autosize>
+  <mat-drawer #drawer fixedInViewport
+      [attr.role]="isHandset ? 'dialog' : 'navigation'"
+      [mode]="isHandset ? 'over' : 'side'"
+      [opened]="!isHandset">
+    <mat-toolbar *ngIf="!isHandset">
+      <button
+        type="button"
+        aria-label="Toggle sidenav"
+        mat-icon-button
+        (click)="isExpanded = !isExpanded;"
+        >
+        <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+      </button>
+    </mat-toolbar>
+    <mat-nav-list>
+      <mat-list-item>
+        <mat-icon mat-list-icon>dashboard</mat-icon>
+        <h4 mat-line *ngIf="isExpanded || isHandset">Dashboard</h4>
+      </mat-list-item>
+      <mat-list-item>
+        <mat-icon mat-list-icon>list</mat-icon>
+        <h4 mat-line *ngIf="isExpanded || isHandset">Posts</h4>
+      </mat-list-item>
+      <mat-list-item>
+        <mat-icon mat-list-icon>person</mat-icon>
+        <h4 mat-line *ngIf="isExpanded || isHandset">Users</h4>
+      </mat-list-item>
+    </mat-nav-list>
+  </mat-drawer>
+  <div>
+    <mat-toolbar color="primary">
+      <button
+        type="button"
+        aria-label="Toggle sidenav"
+        mat-icon-button
+        (click)="drawer.toggle()"
+        *ngIf="isHandset">
+        <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+      </button>
+      <span>intellias</span>
+    </mat-toolbar>
+    <ng-content></ng-content>
+  </div>
+</mat-drawer-container>
