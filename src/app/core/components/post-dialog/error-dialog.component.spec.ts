@@ -1,25 +1,30 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-
 import { ErrorDialogComponent } from './error-dialog.component';
+
+import { MatDialogRefMock } from '@root/src/jest-mocks';
 
 describe('ErrorDialogComponent', () => {
   let component: ErrorDialogComponent;
-  let fixture: ComponentFixture<ErrorDialogComponent>;
+  let matDialogRefMock: MatDialogRefMock;
 
-  beforeEach(async(() => {
-    TestBed.configureTestingModule({
-      declarations: [ ErrorDialogComponent ]
-    })
-    .compileComponents();
-  }));
+  const mockError = {
+    message: 'test',
+    statusText: 'test'
+  } as any;
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(ErrorDialogComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
+    matDialogRefMock = new MatDialogRefMock();
+    component = new ErrorDialogComponent(
+      matDialogRefMock as any,
+      mockError
+    );
   });
 
   it('should create', () => {
     expect(component).toBeTruthy();
+  });
+
+  it(`onClose: should close modal window`, () => {
+    component.onClose();
+    expect(matDialogRefMock.close).toHaveBeenCalled();
   });
 });

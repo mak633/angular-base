@@ -25,18 +25,9 @@ export class UsersComponent implements OnInit {
   ) { }
 
   public ngOnInit(): void {
-    const userId = +this.aroute.snapshot.params.id;
+    const userId = + this.aroute.snapshot.params.id;
     this.users$ = this.dashboardService.getUsers().pipe(
-      tap(users => {
-        if (userId) {
-          const user = users.find(u => u.id === userId);
-          if (user) {
-            this.onOpenMoreDetails(user);
-          } else {
-            this.router.navigate(['./users']);
-          }
-        }
-      })
+      tap(users => userId && this.hasUserIdInUrl(users, userId))
     );
   }
 
@@ -44,5 +35,14 @@ export class UsersComponent implements OnInit {
     this.dialog.open(UserDialogComponent, {
       data: user
     });
+  }
+
+  private hasUserIdInUrl(users: User[], userId: number): void {
+    const user = users.find(u => u.id === userId);
+    if (user) {
+      this.onOpenMoreDetails(user);
+    } else {
+      this.router.navigate(['./users']);
+    }
   }
 }
