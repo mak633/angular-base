@@ -1,0 +1,9 @@
+<h1 mat-dialog-title>Something went wrong....</h1>
+<div mat-dialog-content>
+  <p>{{ data.message }}</p>
+  <p class="mb-4">Error: <strong>{{ data.statusText }}</strong></p>
+  <p><strong>Pleas contact to support</strong></p>
+</div>
+<div mat-dialog-actions class="d-flex justify-content-end py-3">
+  <button mat-button color="primary" (click)="onClose()">Close</button>
+</div>

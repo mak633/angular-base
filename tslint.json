@@ -19,7 +19,7 @@
         "groups": [
           {
             "name": "Core and third-party imports",
-            "match": "^(@angular|rxjs|@fortawesome|@syncfusion|@?ng-?[a-zA-Z]+|date-fns|@herodev|(?:\\w+-?)*$)",
+            "match": "^(@angular|rxjs|@?ng-?[a-zA-Z]+|date-fns|(?:\\w+-?)*$)",
             "order": 10
           },
           {

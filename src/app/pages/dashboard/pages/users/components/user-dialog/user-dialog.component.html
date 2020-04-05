@@ -1,0 +1,19 @@
+<h1 mat-dialog-title>User details</h1>
+<div mat-dialog-content>
+  <p>Name: <strong>{{data.name}}</strong></p>
+  <p>User Name: <strong>{{data.username}}</strong></p>
+  <p>Email: <strong>{{data.email}}</strong></p>
+  <p>Company Name: <strong>{{data.company!.name}}</strong></p>
+  <p>Phone: <strong>{{data.phone}}</strong></p>
+  <p>Website: <strong>{{data.website}}</strong></p>
+  <h4 class="mb-2"><strong>Address</strong></h4>
+  <div class="ml-3">
+    <p>Street: <strong>{{data.address!.street}}</strong></p>
+    <p>Suite: <strong>{{data.address!.suite}}</strong></p>
+    <p>City: <strong>{{data.address!.city}}</strong></p>
+    <p>Zip Code: <strong>{{data.address!.zipcode}}</strong></p>
+  </div>
+</div>
+<div mat-dialog-actions class="d-flex justify-content-end py-3">
+  <button mat-button color="primary" (click)="onClose()">Close</button>
+</div>

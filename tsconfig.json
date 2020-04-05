@@ -22,6 +22,7 @@
     ],
     "paths": {
       "@shared/*": ["./src/app/shared/*"],
+      "@core/*": ["./src/app/core/*"],
       "@environment": ["./src/environments/environment"],
       "@root/*": ["./*"]
     }

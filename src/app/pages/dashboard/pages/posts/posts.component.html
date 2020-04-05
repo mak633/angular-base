@@ -1,8 +1,12 @@
 <div class="p-md-5 p-4">
+  <div class="d-flex justify-content-between align-items-start mb-4">
+    <h1>Posts</h1>
+    <button (click)="onOpenCreateNewPost()" mat-flat-button color="primary">Create new post</button>
+  </div>
   <mat-card>
-    <div class="p-4" *ngIf="posts$ | async as posts else loading">
-      <ng-container *ngFor="let post of posts$ | async">
-        <div class="d-flex justify-content-between align-items-center">
+    <div class="p-0 p-md-4" *ngIf="posts else loading">
+      <ng-container *ngFor="let post of posts">
+        <div class="d-flex flex-column flex-md-row justify-content-between align-items-md-center align-items-start">
           <div class="mb-3">
             <h3 class="mb-2"><strong>{{ post.title }}</strong></h3>
             <p class="mb-2">{{ post.body | slice:0:50 }}<ng-container *ngIf="post.body.length > 50">...</ng-container></p>
@@ -10,7 +14,7 @@
           </div>
           <button (click)="onOpenMoreDetails(post)" mat-flat-button color="primary">View more</button>
         </div>
-        <hr class="mb-4">
+        <hr class="mb-4 mt-4 mt-md-1">
       </ng-container>
     </div>
     <ng-template #loading>
