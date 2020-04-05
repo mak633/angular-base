@@ -10,7 +10,13 @@
           <div class="mb-3">
             <h3 class="mb-2"><strong>{{ post.title }}</strong></h3>
             <p class="mb-2">{{ post.body | slice:0:50 }}<ng-container *ngIf="post.body.length > 50">...</ng-container></p>
-            <p class="mb-0">author: <strong>{{ post.username }}</strong></p>
+            <p class="mb-0">
+              author:
+              <a *ngIf="post.userId else notLink" [routerLink]="['/users', post.userId]">{{ post.username }}</a>
+              <ng-template #notLink>
+                <strong>{{ post.username }}</strong>
+              </ng-template>
+            </p>
           </div>
           <button (click)="onOpenMoreDetails(post)" mat-flat-button color="primary">View more</button>
         </div>

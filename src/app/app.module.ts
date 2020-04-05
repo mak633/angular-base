@@ -5,14 +5,15 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { ErrorDialogComponent } from './core/components';
+import { ErrorDialogComponent, NotFoundComponent } from './core/components';
 import { ErrorHandlerInterceptor } from './core/interceptors';
 import { SharedModule } from './shared';
 
 @NgModule({
   declarations: [
     AppComponent,
-    ErrorDialogComponent
+    ErrorDialogComponent,
+    NotFoundComponent
   ],
   imports: [
     BrowserModule,
